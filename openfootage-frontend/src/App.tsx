@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { API_BASE_URL } from "./config";
 import "./App.css";
 
 type ProviderFilter = "all" | "pexels" | "pixabay" | "freesound" | "unsplash";
@@ -51,7 +52,7 @@ interface ResultItem {
   created?: string | null;
 }
 
-const API_URL = "http://localhost:8000";
+const API_URL = API_BASE_URL;
 const PER_PAGE = 24;
 
 function App() {
