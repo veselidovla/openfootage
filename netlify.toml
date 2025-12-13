@@ -1,0 +1,8 @@
+[build]
+  command = "cd openfootage-frontend && npm ci && npm run build"
+  publish = "openfootage-frontend/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
