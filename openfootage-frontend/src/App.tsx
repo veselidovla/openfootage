@@ -55,6 +55,10 @@ interface ResultItem {
 const API_URL = API_BASE_URL;
 const PER_PAGE = 24;
 
+// Log API URL for debugging
+console.log('OpenFootage API URL:', API_URL);
+console.log('Current hostname:', window.location.hostname);
+
 function App() {
   // Landing page state
   const [showLanding, setShowLanding] = useState(true);
@@ -398,9 +402,10 @@ function App() {
 
   // Get friendly error message based on state
   const getEmptyStateMessage = () => {
-    if (error) {
+    // Only show error if we have no results
+    if (error && results.length === 0) {
       if (errorType === 'network') {
-        return "This provider is temporarily unavailable. Try another source or check back later.";
+        return "Cannot connect to the backend. Please check your internet connection.";
       }
       return "Something went wrong. Please try again.";
     }
@@ -431,6 +436,7 @@ function App() {
       else setLoadingMore(true);
 
       setError(null);
+      setErrorType(null);
 
       let endpoint = `/search/${mode}`;
 
@@ -450,9 +456,14 @@ function App() {
       // Note: aspect_ratio, resolution, orientation are filtered client-side for instant filtering
 
       const requestUrl = `${API_URL}${endpoint}?${params.toString()}`;
-      console.log("Search request:", requestUrl);
+      console.log("=== SEARCH REQUEST ===");
+      console.log("URL:", requestUrl);
+      console.log("API_URL:", API_URL);
       
       const res = await fetch(requestUrl);
+      console.log("Response status:", res.status);
+      console.log("Response ok:", res.ok);
+      
       if (!res.ok) {
         const errorText = await res.text();
         console.error("API error response:", res.status, errorText);
@@ -482,9 +493,22 @@ function App() {
 
       setPage(nextPage);
       setHasSearched(true);
+      
+      // Clear error state on successful response
+      if (incoming.length > 0) {
+        setError(null);
+        setErrorType(null);
+      }
     } catch (err: any) {
-      console.error(err);
-      const isNetworkError = err.message?.includes('Failed to fetch') || err.message?.includes('Network');
+      console.error('Search error:', err);
+      console.error('Error details:', {
+        message: err.message,
+        name: err.name,
+        stack: err.stack,
+        apiUrl: API_URL
+      });
+      const isNetworkError = err.message?.includes('Failed to fetch') || 
+                            err.message?.includes('Network request failed');
       setError(err.message || "Search failed.");
       setErrorType(isNetworkError ? 'network' : 'search');
     } finally {

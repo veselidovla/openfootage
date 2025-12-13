@@ -1,11 +1,12 @@
 // src/config.ts
 
 // This should point to your running FastAPI backend.
-// For mobile testing, it uses the current hostname instead of localhost
-const isLocalhost = window.location.hostname === 'localhost' || 
-                    window.location.hostname === '127.0.0.1' || 
-                    window.location.hostname === '';
+// You can override this by creating a .env file with:
+// VITE_API_URL=http://localhost:8000 (for local backend)
+// or leave it empty to use Railway in development
 
-export const API_BASE_URL = isLocalhost 
-  ? "http://localhost:8000"
-  : `http://${window.location.hostname}:8000`;
+const envApiUrl = import.meta.env.VITE_API_URL;
+
+// If VITE_API_URL is explicitly set, use it
+// Otherwise, use Railway backend as default
+export const API_BASE_URL = envApiUrl || 'https://openfootage-production.up.railway.app';

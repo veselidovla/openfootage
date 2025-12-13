@@ -1,0 +1,32 @@
+INFO:     Will watch for changes in these directories: ['/Users/vladimirveselinovic/Documents/OpenFootage/openfootage-backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [21095] using StatReload
+INFO:     Started server process [21098]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:main:🔍 SIMPLE search: 'nature' (provider=None, type=video, orientation=None, duration=None, size=None)
+INFO:main:📥 Fetching query='nature', videos=True, photos=False, vectors=False, illustrations=False, music=False, sfx=False
+INFO:main:✅ Fetched 12 results for 'nature'
+INFO:main:📊 After filters: 12 results (aspect_ratio=None, resolution=None, orientation=None, color=None, size=None, duration=None, tag=None, sort=None)
+INFO:main:✅ Returning 2 results (page 1/6)
+[DEBUG] Pixabay VIDEO request URL: https://pixabay.com/api/videos/?key=53409059-234004d6f00b5643679ef7745&q=nature&per_page=6&video_type=all&safesearch=true (status=200)
+[DEBUG] Pixabay VIDEO totalHits for 'nature': 500
+INFO:     127.0.0.1:63126 - "GET /search/simple?query=nature&type=video&per_page=2 HTTP/1.1" 200 OK
+INFO:main:🔍 SIMPLE search: 'nature' (provider=None, type=video, orientation=None, duration=None, size=None)
+INFO:main:📥 Fetching query='nature', videos=True, photos=False, vectors=False, illustrations=False, music=False, sfx=False
+INFO:main:✅ Fetched 12 results for 'nature'
+INFO:main:📊 After filters: 12 results (aspect_ratio=None, resolution=None, orientation=None, color=None, size=None, duration=None, tag=None, sort=None)
+INFO:main:✅ Returning 2 results (page 1/6)
+[DEBUG] Pixabay VIDEO request URL: https://pixabay.com/api/videos/?key=53409059-234004d6f00b5643679ef7745&q=nature&per_page=6&video_type=all&safesearch=true (status=200)
+[DEBUG] Pixabay VIDEO totalHits for 'nature': 500
+INFO:     127.0.0.1:63132 - "GET /search/smart?query=nature&type=video&per_page=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63164 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63166 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21098]
+INFO:     Started server process [21965]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
