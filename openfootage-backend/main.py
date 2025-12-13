@@ -856,7 +856,11 @@ def search_smart(
     per_page: int = Query(24, ge=1, le=100),
 ):
     """Smart search - currently uses simple search (embeddings disabled for demo)"""
+    # Create Response object for cache headers
+    from fastapi import Response as ResponseClass
+    temp_response = ResponseClass()
     result = search_simple(
+        response=temp_response,
         query=query,
         provider=provider,
         media_type=media_type,
@@ -892,7 +896,11 @@ def search_semantic(
     per_page: int = Query(24, ge=1, le=100),
 ):
     """Semantic search - currently uses simple search (embeddings disabled for demo)"""
+    # Create Response object for cache headers
+    from fastapi import Response as ResponseClass
+    temp_response = ResponseClass()
     result = search_simple(
+        response=temp_response,
         query=query,
         provider=provider,
         media_type=media_type,
@@ -928,7 +936,11 @@ def search_hybrid(
     per_page: int = Query(24, ge=1, le=100),
 ):
     """Hybrid search - currently uses simple search (embeddings disabled for demo)"""
+    # Create Response object for cache headers
+    from fastapi import Response as ResponseClass
+    temp_response = ResponseClass()
     result = search_simple(
+        response=temp_response,
         query=query,
         provider=provider,
         media_type=media_type,
