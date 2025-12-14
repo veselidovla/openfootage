@@ -30,3 +30,8 @@ INFO:     Finished server process [21098]
 INFO:     Started server process [21965]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21965]
+INFO:     Stopping reloader process [21095]

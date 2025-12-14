@@ -1221,11 +1221,7 @@ function App() {
 
                   <section className="legal-section">
                     <h2>Contact Information</h2>
-                    <p className="contact-email">dmca@openfootage.demo</p>
-                    <p className="legal-note">
-                      Note: This is a demo application. The above email is illustrative. In a production 
-                      environment, valid contact details would be provided.
-                    </p>
+                    <p className="contact-email">openfootage.demo@gmail.com</p>
                   </section>
                 </div>
               )}
