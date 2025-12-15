@@ -140,7 +140,8 @@ a,
    =============================== */
 
 .search-card {
-  max-width: 1800px;
+  width: calc(100% - 40px);
+  max-width: none;
   margin: 0 auto 20px;
   padding: 6px;
   display: flex;
