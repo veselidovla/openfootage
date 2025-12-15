@@ -596,7 +596,7 @@ function App() {
             <div className="hero-logo-group">
               <div className="hero-logo-mark">▶</div>
               <div>
-                <div className="hero-logo-text">OpenFootage <span className="beta-badge">beta</span></div>
+                <div className="hero-logo-text">OpenFootage <span className="beta-badge">demo</span></div>
               </div>
             </div>
             <h1 className="hero-headline">
@@ -675,7 +675,7 @@ function App() {
         <div className="logo-group">
           <div className="logo-mark">▶</div>
           <div>
-            <div className="logo-text-main">openfootage <span className="beta-badge">beta</span></div>
+            <div className="logo-text-main">openfootage <span className="beta-badge">demo</span></div>
             <div className="logo-text-sub">media search</div>
           </div>
         </div>
