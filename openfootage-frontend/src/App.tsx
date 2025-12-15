@@ -994,7 +994,7 @@ function App() {
 
       {/* FOOTER - After Results */}
       {hasSearched && (
-        <footer className="app-footer">
+        <footer className="app-footer results-footer">
           <div className="footer-content">
             <span>© 2025 OpenFootage — Demo Version</span>
             <div className="footer-links">

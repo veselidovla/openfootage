@@ -71,6 +71,8 @@ a,
 .app-container {
   min-height: 100vh;
   background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header {
@@ -1514,10 +1516,14 @@ a,
    =============================== */
 
 .app-footer {
-  margin-top: 80px;
+  margin-top: auto;
   padding: 32px 24px;
   background: var(--bg-elevated);
   border-top: 1px solid var(--border-main);
+}
+
+.app-footer.results-footer {
+  margin-top: 80px;
 }
 
 .footer-content {
