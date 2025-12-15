@@ -140,7 +140,7 @@ a,
    =============================== */
 
 .search-card {
-  width: calc(100% - 40px);
+  width: 95%;
   max-width: none;
   margin: 0 auto 20px;
   padding: 6px;
