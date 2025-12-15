@@ -840,6 +840,21 @@ function App() {
         </div>
       )}
 
+      {/* FOOTER - Before Results */}
+      {!hasSearched && (
+        <footer className="app-footer">
+          <div className="footer-content">
+            <span>© 2025 OpenFootage — Demo Version</span>
+            <div className="footer-links">
+              <button onClick={() => setShowLegalPage('terms')} className="footer-link">Terms</button>
+              <button onClick={() => setShowLegalPage('privacy')} className="footer-link">Privacy</button>
+              <button onClick={() => setShowLegalPage('dmca')} className="footer-link">DMCA</button>
+              <button onClick={() => setShowLegalPage('attribution')} className="footer-link">Attribution</button>
+            </div>
+          </div>
+        </footer>
+      )}
+
       {/* RESULTS */}
       {getEmptyStateMessage() && (
         <div className="empty-state">
@@ -977,18 +992,20 @@ function App() {
         </div>
       )}
 
-      {/* FOOTER */}
-      <footer className="app-footer">
-        <div className="footer-content">
-          <span>© 2025 OpenFootage — Demo Version</span>
-          <div className="footer-links">
-            <button onClick={() => setShowLegalPage('terms')} className="footer-link">Terms</button>
-            <button onClick={() => setShowLegalPage('privacy')} className="footer-link">Privacy</button>
-            <button onClick={() => setShowLegalPage('dmca')} className="footer-link">DMCA</button>
-            <button onClick={() => setShowLegalPage('attribution')} className="footer-link">Attribution</button>
+      {/* FOOTER - After Results */}
+      {hasSearched && (
+        <footer className="app-footer">
+          <div className="footer-content">
+            <span>© 2025 OpenFootage — Demo Version</span>
+            <div className="footer-links">
+              <button onClick={() => setShowLegalPage('terms')} className="footer-link">Terms</button>
+              <button onClick={() => setShowLegalPage('privacy')} className="footer-link">Privacy</button>
+              <button onClick={() => setShowLegalPage('dmca')} className="footer-link">DMCA</button>
+              <button onClick={() => setShowLegalPage('attribution')} className="footer-link">Attribution</button>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
 
       {/* LEGAL PAGE MODAL */}
       {showLegalPage && (
