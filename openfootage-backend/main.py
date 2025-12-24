@@ -336,7 +336,7 @@ COMMON_TERMS = {
     
     # People
     "person", "people", "man", "woman", "child", "children", "family", "business", "office", "work",
-    "meeting", "team", "crowd", "face", "portrait", "smile", "hand", "hands",
+    "meeting", "team", "crowd", "face", "portrait", "smile", "hand", "hands", "foot", "feet",
     
     # Animals
     "dog", "cat", "bird", "fish", "horse", "animal", "animals", "wildlife", "pet",
