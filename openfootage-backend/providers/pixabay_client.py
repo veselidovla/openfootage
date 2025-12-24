@@ -11,7 +11,7 @@ except Exception:
     CONFIG_PIXABAY_KEY = None
 
 # 2) Fallback to environment variable
-ENV_PIXABAY_KEY = os.environ.get("53409059-234004d6f00b5643679ef7745")
+ENV_PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 
 # 3) Final value: config wins, then env, else empty
 PIXABAY_API_KEY = CONFIG_PIXABAY_KEY or ENV_PIXABAY_KEY

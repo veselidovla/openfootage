@@ -49,10 +49,17 @@ def normalize_pixabay_video(raw: dict) -> dict:
         resolution = "SD"
 
     # Get proper video thumbnail (not user profile picture)
-    # Pixabay provides video thumbnails via the picture_id field
-    thumbnail_url = raw.get("picture_id")
+    # Pixabay video thumbnails are nested in the videos object for each size
+    # Try to get thumbnail from the same quality level as the video we selected
+    thumbnail_url = best.get("thumbnail")
     if not thumbnail_url:
-        # Fallback to userImageURL only if no thumbnail exists
+        # Fallback: try other video sizes for thumbnail
+        for size in ["large", "medium", "small", "tiny"]:
+            if videos.get(size, {}).get("thumbnail"):
+                thumbnail_url = videos.get(size, {}).get("thumbnail")
+                break
+    if not thumbnail_url:
+        # Last resort fallback to userImageURL (profile picture)
         thumbnail_url = raw.get("userImageURL")
     
     return {
