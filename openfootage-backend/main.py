@@ -401,10 +401,11 @@ def correct_typo(query: str) -> str:
             distance = levenshtein_distance(word, term)
             
             # If distance is small enough, it's likely a typo
-            # Allow 1 typo for words 4-6 chars, 2 typos for words 7+ chars
-            max_allowed = 1 if len(word) <= 6 else 2
+            # More conservative: only correct obvious typos (distance >= 2)
+            # This prevents false corrections like "foot" → "food"
+            max_allowed = 2
             
-            if distance < min_distance and distance <= max_allowed:
+            if distance < min_distance and distance >= 2 and distance <= max_allowed:
                 min_distance = distance
                 best_match = term
         
