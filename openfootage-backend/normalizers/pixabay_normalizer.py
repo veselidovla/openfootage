@@ -48,6 +48,13 @@ def normalize_pixabay_video(raw: dict) -> dict:
     else:
         resolution = "SD"
 
+    # Get proper video thumbnail (not user profile picture)
+    # Pixabay provides video thumbnails via the picture_id field
+    thumbnail_url = raw.get("picture_id")
+    if not thumbnail_url:
+        # Fallback to userImageURL only if no thumbnail exists
+        thumbnail_url = raw.get("userImageURL")
+    
     return {
         "id": f"pixabay-{video_id}",
         "provider": "pixabay",
@@ -55,7 +62,7 @@ def normalize_pixabay_video(raw: dict) -> dict:
 
         "title": tags,
         "page_url": page_url,
-        "preview_image_url": raw.get("userImageURL"),
+        "preview_image_url": thumbnail_url,
         "video_url": best.get("url"),
 
         "width": width,
