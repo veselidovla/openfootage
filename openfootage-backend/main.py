@@ -646,13 +646,10 @@ def search_simple(
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     
-    # Apply typo correction
-    corrected_query = correct_typo(query)
-    
     logger.info(f"🔍 SIMPLE search: '{query}' (provider={provider}, type={media_type}, orientation={orientation}, duration={duration}, size={size})")
     try:
         docs = fetch_and_index_all(
-            query=corrected_query,
+            query=query,
             limit=per_page * 3,
             provider_filter=provider,
             media_type=media_type,
@@ -815,21 +812,15 @@ def search_simple(
 
         logger.info(f"✅ Returning {len(results)} results (page {page}/{(total_hits + per_page - 1) // per_page})")
         
-        result_response = {
+        return {
             "mode": "simple",
             "query": query,
             "results": results,
             "estimatedTotalHits": total_hits,
             "page": page,
             "per_page": per_page,
-            "timestamp": datetime.utcnow().isoformat() + "Z",  # Add timestamp for cache debugging
+            "timestamp": datetime.utcnow().isoformat() + "Z",
         }
-        
-        # Add corrected query if typo was fixed
-        if corrected_query != query.lower():
-            result_response["correctedQuery"] = corrected_query
-        
-        return result_response
 
     except Exception as e:
         logger.error(f"❌ SIMPLE ERROR: {e}", exc_info=True)
