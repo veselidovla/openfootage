@@ -6,7 +6,7 @@ OpenFootage is an open-source stock media search engine that aggregates
 video, photo, vector, illustration, music, and SFX results from multiple 
 free providers into a single, fast interface.
 
-🔗 **Live demo:** https://openfootage-demo.netlify.app/
+**Live demo:** https://openfootage-demo.netlify.app/
 
 ---
 
